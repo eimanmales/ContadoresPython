@@ -100,16 +100,20 @@ for pagina in datos:
     try:
         if result==True:
             url=f'https://{pagina[0]}/hp/device/InternalPages/Index?id=UsagePage'
-            #context = ssl._create_unverified_context(cafile=certifi.where())
-            #site=request.urlopen(url, context=context)
-            site = requests.get(url).text
+            #url='https://172.16.17.12/hp/device/InternalPages/Index?id=UsagePage'
+            #url = "https://www.eltiempo.com"
+            print(url)
+            context = ssl._create_unverified_context(cafile=certifi.where())
+            site=request.urlopen(url, context=context)
+            #site = requests.get(url)
             #print(site)
+            print(f'{pagina[1]}.html')
             f=open(f'{pagina[1]}.html', 'wb')
-            #print(f)
+            
             f.write(site.read())
             f.close
             now = time.strftime("%d/%m/%y")
-            #print(now)
+            print(now)
             option = {'header-right': f'{pagina[1]}', 'footer-right': f'{pagina[0]}    -      {now} '  , 
                       'enable-local-file-access': False}  
             #print(option)                  
@@ -123,10 +127,11 @@ for pagina in datos:
                     time.sleep(1)                    
                 else:
                     existe = False
-                    
+            print(f'{pagina[1]}.html')
+            #print(f'{pagina[1]}.html', f'{pagina[1]}.pdf', option)        
             #pdfkit.from_url(f'http://{pagina[0]}/cgi-bin/dynamic/printer/config/reports/devicestatistics.html', f'{pagina[1]}.pdf', options=option)
-            pdfkit.from_file(f'{pagina[1]}.html', f'{pagina[1]}.pdf', options=option)
-                    
+            pdf = pdfkit.from_file(f'{pagina[1]}.html', f'{pagina[1]}.pdf', options=option)
+                 
             f = open(f'{pagina[1]}.html')
             reader = f.read()       
             cargaDatos = re.findall("Total general</p></td><td><p>(\d{1,2})", reader)
