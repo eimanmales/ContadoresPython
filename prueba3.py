@@ -2,16 +2,16 @@ import csv
 import os
 import pdfkit
 import ssl
-import certifi
+#import certifi
 import re
 import urllib.request as urlopen
-import requests
+#import requests
 from bs4 import BeautifulSoup
 import pathlib
 import urllib.error
 import time
 import json
-from googletrans import Translator
+#from googletrans import Translator
 #http://10.1.251.41/cgi-bin/dynamic/printer/login.html?login_type=password_only&accid=13&goto=%2Fcgi%2Dbin%2Fdynamic%2Fprinter%2Fconfig%2Freports%2Fdevicestatistics.html
 f=open('Impresoras.csv')
 reader= csv.reader(f, delimiter= ';')
