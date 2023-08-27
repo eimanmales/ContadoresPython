@@ -1,0 +1,50 @@
+
+
+div.internal-pages div.table .align-right {
+    text-align: right;
+}
+div.internal-pages div.table td {
+    cursor: default;
+    padding: 2px 5px;
+    vertical-align: top;
+    border: 1px solid #b9b8bb;
+}
+body, input, button, select, textarea, a, p, ul, ol, li, span, h1, h2, h3, h4, h5, div, dl, dd, dt, table, thead, tbody, tfoot, tr, th, td {
+    font-family: HPSimplified, Arial, Helvetica, Sans-Serif;
+    outline: none;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+hoja de estilo del usuario-agente
+td {
+    display: table-cell;
+    vertical-align: inherit;
+}
+div.internal-pages div.table table {
+    border: 1px solid #b9b8bb;
+    border-top: 0;
+    width: 100%;
+    font-size: 1em;
+    border-collapse: initial;
+    border-spacing: 0px;
+}
+table {
+    font-size: 1em;
+}
+hoja de estilo del usuario-agente
+table {
+    border-collapse: separate;
+    text-indent: initial;
+    border-spacing: 2px;
+}
+body {
+    background: #fff;
+    font-size: 14px;
+    color: #000;
+}
