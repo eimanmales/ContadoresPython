@@ -116,7 +116,7 @@ for pagina in datos:
                     os.mkdir(nomCarp)
             #print(f'{pagina[1]}.html')
             try:
-                pdfkit.from_file(f'{pagina[1]}.html', os.path.join(nomCarp, f'{pagina[1]}.pdf'), configuration=config, options=option)
+                pdfkit.from_file(f'{pagina[1]}.html', os.path.join(nomCarp, f'{pagina[1]}.pdf'), configuration=config, options=option, css='estilo.css')
             except Exception as e:
                 #print('')
                 print('Error for ' + str(e) + ',Page :' + f'{pagina[1]}.pdf')
