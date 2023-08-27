@@ -75,7 +75,7 @@ for pagina in datos:
             site=urlopen.urlopen(url, context=context).read()
             #site= requests.get(url, headers=Hostreferer,verify=False)
             #sinBy =(site.decode('utf-8'))
-            #print(sinBy)
+            print(site)
             soup = BeautifulSoup(site, 'html.parser')
             #name = soup.find('id', attrs={'id': 'company__name'})
             link = soup.find("div", {"id": "InternalPageContent"})
@@ -86,10 +86,11 @@ for pagina in datos:
             #print(traduccion.text)
             #print(f'{pagina[1]}.html')
             f=open(f'{pagina[1]}.html', 'w', encoding='utf-8')
-            
-            f.write(str(link))
+            f.write('<link rel="stylesheet" type="text/css" href="./estilo.css">')
+            #f.write(str(link))
             #f.write((traduccion.text))
-            f.close
+            
+            #f.close
             now = time.strftime("%d-%m-%y")
             nomCarp = 'PDFs_'+now
             #print(now)
@@ -138,8 +139,8 @@ for pagina in datos:
             #print(cargaDatos)
             #print(serial)
             #print(modelo)
-            f.close()
-            os.remove(f'{pagina[1]}.html')
+            #f.close()
+            #os.remove(f'{pagina[1]}.html')
             campos = ['Nombre Impresora', 'Modelo', 'IP', 'Serial', 'Contador']
             facturacion = {campos[0]: pagina[1], campos[1]:modelo[0],campos[2]:pagina[0], campos[3]: serial[0], campos[4]: cargaDatos[0]}
             if not pathlib.Path('facturacion.csv').exists():
